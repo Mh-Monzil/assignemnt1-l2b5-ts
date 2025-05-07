@@ -1,4 +1,6 @@
-# Difference between any, unknown, and never types in TypeScript
+# TypeScript Blog
+
+## Difference between `any`, `unknown`, and `never` types in TypeScript
 
 ## any
 
@@ -26,7 +28,7 @@ We can use it when need the output quickly and at the time of prototyping. But i
 
 ### What it means:
 
-unknown is a type-safe version of any. We can assign anything to it, but we can't use it directly without checking the type.
+`unknown` is a type-safe version of any. We can assign anything to it, but we can't use it directly without checking the type.
 
 ### Example:
 
@@ -46,7 +48,7 @@ It can be used when we are receiving dynamic data and enforce validation or type
 
 ### What it means
 
-never represents a value that should never happen or exist. This is used where a function never return any value.
+`never` represents a value that should never happen or exist. This is used where a function never return any value.
 
 ### Example:
 
@@ -62,4 +64,28 @@ function infiniteLoop(): never {
 
 ### When to use
 
-We can use never in function that never return (like infinite loop or errors).
+We can use `never` in function that never return (like infinite loop or errors).
+
+## Understanding the `keyof` Keyword in TypeScript
+
+`keyof` keyword allows us to extract the `keys` of an object type as a union of string literals.
+
+The keyof keyword takes an object type and returns a union of its keys.
+
+### Example:
+
+```ts
+type User = {
+  name: string;
+  age: number;
+  email: string;
+};
+
+type UserKeys = keyof User; // "name" | "age" | "email"
+```
+
+Now `UserKeys` can only be one of `"name"`, `"age"`, or `"email"`. This becomes especially useful when building reusable functions that operate on object keys.
+
+### Conclusion
+
+The keyof keyword is a simple but powerful feature in TypeScript. It ensures to use valid keys of an object, makes code more reliable and maintainable.
