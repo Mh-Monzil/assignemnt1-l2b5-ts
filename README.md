@@ -10,12 +10,13 @@ It's turn off the type system for a variable and behave like JavaScript. So in t
 
 ### Example:
 
-`let value: any = "I am a value";
+```tsc
+let value: any = "I am a value";
 value = 12;
 value = true;
 value = {"value1", "value2"}
 value = ["value1", "value2"]
-`
+```
 
 ### When to use:
 
@@ -29,12 +30,13 @@ unknown is a type-safe version of any. We can assign anything to it, but we can'
 
 ### Example:
 
-`let text: unknown = "Hello";
+```tsc
+let text: unknown = "Hello";
 
 if(typeof text === 'string'){
 console.log(text.toUpperCase());
 }
-`
+```
 
 ### When to use:
 
@@ -48,10 +50,15 @@ never represents a value that should never happen or exist. This is used where a
 
 ### Example:
 
-`function sum(value1: number, value2: number): never {
-  console.log(value1 + value2)
+```tsc
+function throwError(message: string): never {
+  throw new Error(message); // Never returns
 }
-`
+
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
 
 ### When to use
 
