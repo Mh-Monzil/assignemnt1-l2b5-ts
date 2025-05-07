@@ -10,7 +10,7 @@ It's turn off the type system for a variable and behave like JavaScript. So in t
 
 ### Example:
 
-```tsc
+```ts
 let value: any = "I am a value";
 value = 12;
 value = true;
@@ -30,11 +30,11 @@ unknown is a type-safe version of any. We can assign anything to it, but we can'
 
 ### Example:
 
-```tsc
+```ts
 let text: unknown = "Hello";
 
-if(typeof text === 'string'){
-console.log(text.toUpperCase());
+if (typeof text === "string") {
+  console.log(text.toUpperCase());
 }
 ```
 
@@ -50,9 +50,9 @@ never represents a value that should never happen or exist. This is used where a
 
 ### Example:
 
-```tsc
+```ts
 function throwError(message: string): never {
-  throw new Error(message); // Never returns
+  throw new Error(message);
 }
 
 function infiniteLoop(): never {
